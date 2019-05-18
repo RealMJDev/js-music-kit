@@ -1,3 +1,4 @@
+/*
 const key = document.querySelectorAll('.key');
 const v = document.querySelector('.v');
 const b = document.querySelector('.b');
@@ -30,4 +31,9 @@ window.addEventListener('keyup', function(){
     b.classList.remove('active');
     n.classList.remove('active');
 });
+*/
 
+window.addEventListener('keydown', function(e){
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    console.log(audio);
+});
