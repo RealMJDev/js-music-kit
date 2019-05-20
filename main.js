@@ -34,6 +34,17 @@ window.addEventListener('keyup', function(){
 */
 
 window.addEventListener('keydown', function(e){
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    console.log(audio);
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //Get the audio by data value, save in variable
+    if(!audio)return; // If key is hit with no data value, return on stop the funtion all together
+    audio.currentTime = 0; //Will rewind it to the start
+    audio.play(); //Play the audio sound on keydown
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //set the corrosponding element for the data-key value
+    console.log(key);
+    key.classList.add('active'); //Add a class called active for CSS animations
 });
+
+window.addEventListener('keyup', function(e){
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //set the corrosponding element for the data-key value
+    key.classList.remove('active'); //Remove the CSS animation class
+    console.log(key);
+})
